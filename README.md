@@ -34,18 +34,25 @@ python3 setup.py develop
 ```
 roscore
 ```
-2. Move to 'tools' directory and run test_ros.py (pretrained model: ../pt/livox_model_1.pt or ../pt/livox_model_2.pt).
+2. [USE DETECTOR ALONE]
+   Move to 'tools' directory and run test_ros.py (pretrained model: ../pt/livox_model_1.pt or ../pt/livox_model_2.pt).
 ```
 cd tools
-python3 test_ros.py --pt ../pt/livox_model_1.pt
+python3 test_ros.py --pt ../pt/livox_model_2.pt
 ```
+   Visualize the results.
+```
+rviz -d rviz.rviz
+```
+[USE AS LIO_SEGMOT SERVICE] Move to 'tools' directory and run test_ros.py (pretrained model: ../pt/livox_model_1.pt or ../pt/livox_model_2.pt).
+```
+cd segmot_interface
+python3 livox_segmot.py --pt ../pt/livox_model_2.pt
+```
+
 3. Play rosbag. (Please adjust the ground plane to 0m and keep it horizontal. The topic of pointcloud2 should be /livox/lidar)
 ```
 rosbag play [bag path]
-```
-4. Visualize the results.
-```
-rviz -d rviz.rviz
 ```
 
 ## Acknowledgements
